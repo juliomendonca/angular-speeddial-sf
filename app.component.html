@@ -1,0 +1,41 @@
+<div class="control-section">
+  <button
+    #popupTempSpeeddial
+    [items]="items"
+    content='<span class="text-container"><span class="text-internal">&nbsp;Legenda</span></span>'
+    cssClass="e-info popupSpeedDial speeddial-hover"
+    ejs-speeddial
+    openIconCss="e-icons e-table-of-content"
+    popupTemplate="#popupTemplate"
+    position="BottomRight"
+  >
+    <ng-template #popupTemplate>
+      <div class="popuptempContent">
+        <div class="speeddial-form">
+          <div class="head">
+            <div class="textEle">Legenda</div>
+            <div class="iconEle">
+              <span
+                class="speeddial-icons speeddial-icon-close closeicon"
+                (click)="closeClick()"
+              ></span>
+            </div>
+          </div>
+          <div class="content">
+            <div fxLayout="row" fxLayoutGap="5px">
+              <div *ngFor="let item of items; let i = index">
+                <span
+                  class="icon {{ item.iconCss }}"
+                  style="padding:3px"
+                ></span>
+                <span class="text">{{ item.text }}</span>
+              </div>
+
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </button>
+</div>
